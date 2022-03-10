@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 
-import { SideBar } from './components/SideBar';
-import { Content } from './components/Content';
+import { SideBar } from './modules/SideBar/SideBar';
+import { Content } from './modules/Content/Content';
 
 import { api } from './services/api';
 
 import './styles/global.scss';
-
 import './styles/sidebar.scss';
 import './styles/content.scss';
 
@@ -48,7 +47,7 @@ export function App() {
 
     api.get<GenreResponseProps>(`genres/${selectedGenreId}`).then(response => {
       setSelectedGenre(response.data);
-    })
+    });
   }, [selectedGenreId]);
 
   function handleClickButton(id: number) {
@@ -63,10 +62,7 @@ export function App() {
         buttonClickCallback={handleClickButton}
       />
 
-      <Content
-        selectedGenre={selectedGenre}
-        movies={movies}
-      />
+      <Content selectedGenre={selectedGenre} movies={movies} />
     </div>
-  )
+  );
 }
