@@ -1,7 +1,13 @@
+import { ComponentType } from 'react';
+
 import { Button } from '../Button/Button';
 import { SideBarProps } from './Types';
 
-export function SideBar({ genres, selectedGenreId, buttonClickCallback }: SideBarProps) {
+export const SideBar: ComponentType<SideBarProps> = ({
+  genres,
+  selectedGenreId,
+  buttonClickCallback
+}) => {
   return (
     <nav className="sidebar">
       <span>
@@ -21,4 +27,4 @@ export function SideBar({ genres, selectedGenreId, buttonClickCallback }: SideBa
       </div>
     </nav>
   );
-}
+};

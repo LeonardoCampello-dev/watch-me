@@ -1,14 +1,13 @@
+import { ComponentType } from 'react';
+
+import { CategoryTitle } from './components';
 import { MovieCard } from '../MovieCard/MovieCard';
 import { ContentProps } from './Types';
 
-export function Content({ selectedGenre, movies }: ContentProps) {
+export const Content: ComponentType<ContentProps> = ({ selectedGenre, movies }) => {
   return (
     <div className="container">
-      <header>
-        <span className="category">
-          Categoria:<span> {selectedGenre.title}</span>
-        </span>
-      </header>
+      <CategoryTitle title={selectedGenre.title || ''} />
 
       <main>
         <div className="movies-list">
@@ -25,4 +24,4 @@ export function Content({ selectedGenre, movies }: ContentProps) {
       </main>
     </div>
   );
-}
+};

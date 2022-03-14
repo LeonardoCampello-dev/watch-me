@@ -1,27 +1,18 @@
-import { Star, Clock } from 'react-feather';
+import { ComponentType } from 'react';
+
+import { MovieInfo } from './components';
 import { MovieCardProps } from './Types';
 
 import './Styles.scss';
 
-export function MovieCard(props: MovieCardProps) {
+export const MovieCard: ComponentType<MovieCardProps> = props => {
   return (
     <div className="movie-card">
       <img src={props.poster} alt={props.title} />
 
       <div>
-        <div className="movie-info">
-          <span>{props.title}</span>
-          <div className="meta">
-            <div>
-              <Star /> {props.rating}
-            </div>
-
-            <div>
-              <Clock /> {props.runtime}
-            </div>
-          </div>
-        </div>
+        <MovieInfo title={props.title} rating={props.rating} runtime={props.runtime} />
       </div>
     </div>
   );
-}
+};

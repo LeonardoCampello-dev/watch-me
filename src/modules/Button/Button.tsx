@@ -1,18 +1,23 @@
 import { Icon } from '../Icon/Icon';
 
-import { memo } from 'react';
+import { ComponentType, memo } from 'react';
 import { ButtonProps } from './Types';
 
 import './Styles.scss';
 
-export function ButtonComponent({ iconName, title, selected, ...rest }: ButtonProps) {
+export const ButtonComponent: ComponentType<ButtonProps> = ({
+  iconName,
+  title,
+  selected,
+  ...rest
+}) => {
   return (
     <button type="button" {...(selected && { className: 'selected' })} {...rest}>
       <Icon name={iconName} color={selected ? '#FAE800' : '#FBFBFB'} />
       {title}
     </button>
   );
-}
+};
 
 export const Button = memo(
   ButtonComponent,
