@@ -32,7 +32,7 @@ export const Content: ComponentType<ContentProps> = ({ selectedGenre, movies }) 
       <CategoryTitle title={selectedGenre.title || ''} />
 
       <main>
-        <List {...setup} rowRenderer={rowRenderer} />
+        <List autoHeight {...setup} rowRenderer={rowRenderer} />
       </main>
     </div>
   );
